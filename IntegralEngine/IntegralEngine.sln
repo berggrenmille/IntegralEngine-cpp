@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.16
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "IntegralEngine", "IntegralEngine\IntegralEngine.vcxproj", "{BA1D1765-9086-4076-AFD5-A7B7FFEDA344}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MinecraftCpp", "MinecraftCpp\MinecraftCpp.vcxproj", "{22F2336A-7649-4A82-9E9E-48E6258CA150}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BA1D1765-9086-4076-AFD5-A7B7FFEDA344}.Debug|x64.ActiveCfg = Debug|x64
+		{BA1D1765-9086-4076-AFD5-A7B7FFEDA344}.Debug|x64.Build.0 = Debug|x64
+		{BA1D1765-9086-4076-AFD5-A7B7FFEDA344}.Debug|x86.ActiveCfg = Debug|Win32
+		{BA1D1765-9086-4076-AFD5-A7B7FFEDA344}.Debug|x86.Build.0 = Debug|Win32
+		{BA1D1765-9086-4076-AFD5-A7B7FFEDA344}.Release|x64.ActiveCfg = Release|x64
+		{BA1D1765-9086-4076-AFD5-A7B7FFEDA344}.Release|x64.Build.0 = Release|x64
+		{BA1D1765-9086-4076-AFD5-A7B7FFEDA344}.Release|x86.ActiveCfg = Release|Win32
+		{BA1D1765-9086-4076-AFD5-A7B7FFEDA344}.Release|x86.Build.0 = Release|Win32
+		{22F2336A-7649-4A82-9E9E-48E6258CA150}.Debug|x64.ActiveCfg = Debug|x64
+		{22F2336A-7649-4A82-9E9E-48E6258CA150}.Debug|x64.Build.0 = Debug|x64
+		{22F2336A-7649-4A82-9E9E-48E6258CA150}.Debug|x86.ActiveCfg = Debug|Win32
+		{22F2336A-7649-4A82-9E9E-48E6258CA150}.Debug|x86.Build.0 = Debug|Win32
+		{22F2336A-7649-4A82-9E9E-48E6258CA150}.Release|x64.ActiveCfg = Release|x64
+		{22F2336A-7649-4A82-9E9E-48E6258CA150}.Release|x64.Build.0 = Release|x64
+		{22F2336A-7649-4A82-9E9E-48E6258CA150}.Release|x86.ActiveCfg = Release|Win32
+		{22F2336A-7649-4A82-9E9E-48E6258CA150}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {852AE92C-E480-4AC8-B97A-18D3741474C7}
+	EndGlobalSection
+EndGlobal
