@@ -4,8 +4,9 @@
 #include <iostream>
 
 Window::Window(int width, int height)
-	:	m_internalWindow(nullptr), m_width(width), m_height(height), m_mouseFocus(true), m_keyboardFocus(true)
+	: m_internalWindow(nullptr), m_internalContext(nullptr), m_windowID(-1), m_width(width), m_height(height), m_mouseFocus(true), m_keyboardFocus(true), m_fullScreen(false), m_minimized(false), m_shown(true)
 {
+	//INIT MEMBER VARIABLES
 }
 
 bool Window::Init()
@@ -19,16 +20,20 @@ bool Window::Init()
 		m_shown = true;
 		m_windowID = SDL_GetWindowID(m_internalWindow);
 	}
+	//Apply gl context
 	m_internalContext = SDL_GL_CreateContext(m_internalWindow);
 
+	//Init glew
 	glewExperimental = GL_TRUE;
-
 	if(GLEW_OK != glewInit())
 	{
 		std::cout << "Failed to initialize GLEW" << std::endl;
 	}
-	glViewport(0, 0, m_width, m_height);
 
+	//Setup gl viewport
+	glViewport(0, 0, m_width, m_height);
+	
+	//Validate
 	if(m_internalWindow != nullptr && m_internalContext != NULL)
 		return true;
 	return false;
@@ -60,12 +65,12 @@ void Window::OnEvent(SDL_Event& event)
 			//Mouse enter
 		case SDL_WINDOWEVENT_ENTER:
 			m_mouseFocus = true;
-
 			break;
 
 			//Mouse exit
 		case SDL_WINDOWEVENT_LEAVE:
 			m_mouseFocus = false;
+			
 			break;
 
 			//Keyboard focus gained
@@ -111,7 +116,8 @@ void Window::SetFocus()
 
 void Window::Tick()
 {
-	//RENDER ETC
+	
+	
 }
 
 void Window::Cleanup()
@@ -119,12 +125,12 @@ void Window::Cleanup()
 	SDL_DestroyWindow(m_internalWindow);
 }
 
-int Window::GetWidth()
+int Window::GetWidth() const
 {
 	return m_width;
 }
 
-int Window::GetHeight()
+int Window::GetHeight() const
 {
 	return m_height;
 }

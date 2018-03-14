@@ -24,8 +24,8 @@ public:
 	void Cleanup();
 
 	//Get window dimensions
-	int GetWidth();
-	int GetHeight();
+	int GetWidth() const;
+	int GetHeight() const;
 
 	//Get window info
 	bool HasMouseFocus() const;

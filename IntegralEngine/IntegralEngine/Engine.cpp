@@ -35,10 +35,20 @@ void Engine::MainLoop()
 {
 	while(m_windows.size() != 0)
 	{
+		//Tick systems
 		Time::Tick();
 		Input::Tick();
-
-		for (int i = 0; i < m_windows.size(); ++i)
+		//Check for sdl events
+		SDL_Event e;
+		while (SDL_PollEvent(&e))
+		{
+			for (auto i = 0; i < m_windows.size(); ++i)
+			{
+				m_windows[i]->OnEvent(e);
+			}
+		}
+		//Main tick
+		for (auto i = 0; i < m_windows.size(); ++i)
 		{
 			m_windows[i]->Tick();
 		}
