@@ -1,4 +1,2 @@
-﻿  Engine.cpp
-c:\users\iceklue\documents\_github\c++\integralengine-cpp\integralengine\integralengine\engine.cpp(41): warning C4018: '<': signed/unsigned mismatch
-  IntegralEngine.vcxproj -> C:\Users\Iceklue\Documents\_Github\C++\IntegralEngine-cpp\IntegralEngine\Debug\IntegralEngine.exe
-  IntegralEngine.vcxproj -> C:\Users\Iceklue\Documents\_Github\C++\IntegralEngine-cpp\IntegralEngine\Debug\IntegralEngine.pdb (Partial PDB)
+﻿  IntegralEngine.vcxproj -> C:\Users\Marie\Documents\Github\C++\IntegralEngine-cpp\IntegralEngine\Debug\IntegralEngine.exe
+  IntegralEngine.vcxproj -> C:\Users\Marie\Documents\Github\C++\IntegralEngine-cpp\IntegralEngine\Debug\IntegralEngine.pdb (Partial PDB)
