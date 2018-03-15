@@ -4,8 +4,10 @@
 
 class Input
 {
+	friend class Engine;
 public:
 	static void Tick();
+	static void OnEvent(SDL_Event& e);
 	
 	static bool GetKeyDown(SDL_Keycode key);
 	static bool GetKeyUp(SDL_Keycode key);
@@ -15,7 +17,8 @@ public:
 	static bool GetMouseUp(int i);
 	static bool GetMouseHold(int i);
 
-
+	static Sint32 mouseX;
+	static Sint32 mouseY;
 private:
 	const static Uint8* m_keyboardState;
 	static Uint8* m_lastKeyboardState;
@@ -23,6 +26,5 @@ private:
     static Uint32 m_mouseState;
 	static Uint32 m_lastMouseState;
 	
-	static int* mouseX;
-	static int* mouseY;
+	
 };

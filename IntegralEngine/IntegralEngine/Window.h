@@ -33,6 +33,7 @@ public:
 	bool IsMinimized() const;
 	bool IsShown() const;
 
+	static int GetCurrentID();
 
 	~Window();
 private:
@@ -51,5 +52,7 @@ private:
 	bool m_fullScreen;
 	bool m_minimized;
 	bool m_shown;
+
+	static int m_currentWindowID;
 
 };

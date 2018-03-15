@@ -1,11 +1,13 @@
 ﻿#include "stdafx.h"
 #include "Window.h"
 #include <GL/glew.h>
-#include <iostream>
+
+int Window::m_currentWindowID = -1;
 
 Window::Window(int width, int height)
 	: m_internalWindow(nullptr), m_internalContext(nullptr), m_windowID(-1), m_width(width), m_height(height), m_mouseFocus(true), m_keyboardFocus(true), m_fullScreen(false), m_minimized(false), m_shown(true)
 {
+	
 	//INIT MEMBER VARIABLES
 }
 
@@ -41,7 +43,7 @@ bool Window::Init()
 
 void Window::OnEvent(SDL_Event& event)
 {
-	if (event.type == SDL_WINDOWEVENT && event.window.windowID == m_windowID)
+	if (event.window.windowID == m_windowID)
 	{
 		switch (event.window.event)
 		{
@@ -112,6 +114,7 @@ void Window::SetFocus()
 	if (!m_shown)
 		SDL_ShowWindow(m_internalWindow);
 	SDL_RaiseWindow(m_internalWindow);
+	m_currentWindowID = m_currentWindowID;
 }
 
 void Window::Tick()
@@ -150,6 +153,11 @@ bool Window::IsMinimized() const
 bool Window::IsShown() const
 {
 	return m_shown;
+}
+
+int Window::GetCurrentID()
+{
+	return m_currentWindowID;
 }
 
 Window::~Window()

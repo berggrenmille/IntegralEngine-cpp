@@ -1,13 +1,10 @@
 ﻿#pragma once
 
-class Time
+namespace Time
 {
-public:
-	static double deltaTime;
-	static double time;
+	extern double deltaTime;
+	extern double time;
 
-	static void Tick();
+    void Tick();
 
-private:
-	static double lastTime;
 };

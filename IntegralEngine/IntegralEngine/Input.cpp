@@ -1,13 +1,14 @@
 ﻿#include "stdafx.h"
 #include "Input.h"
 #include <SDL.h>
+#include "Window.h"
 
 const Uint8* Input::m_keyboardState = new Uint8[SDL_NUM_SCANCODES];
 Uint8* Input::m_lastKeyboardState = new Uint8[SDL_NUM_SCANCODES];
 Uint32 Input::m_mouseState = 0;
 Uint32 Input::m_lastMouseState = 0;
-int* Input::mouseX = nullptr;
-int* Input::mouseY = nullptr;
+Sint32 Input::mouseX = 0;
+Sint32 Input::mouseY = 0;
 
 void Input::Tick()
 {
@@ -19,8 +20,16 @@ void Input::Tick()
 	m_lastMouseState = m_mouseState;
 	//Get new states
 	m_keyboardState = SDL_GetKeyboardState(nullptr);
-	m_mouseState = SDL_GetMouseState(mouseX, mouseY);
+	m_mouseState = SDL_GetMouseState(NULL, NULL);
+	
 	SDL_PumpEvents();
+}
+
+void Input::OnEvent(SDL_Event& e)
+{
+	if(e.window.windowID == Window::GetCurrentID())
+	mouseX = e.motion.xrel;
+	mouseY = e.motion.yrel;
 }
 
 bool Input::GetKeyDown(SDL_Keycode key)
