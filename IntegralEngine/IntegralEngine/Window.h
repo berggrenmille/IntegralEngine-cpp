@@ -28,12 +28,14 @@ public:
 	int GetHeight() const;
 
 	//Get window info
+	int GetWindowID() const;
+	SDL_Window* GetInternalWindow() const;
 	bool HasMouseFocus() const;
 	bool HasKeyboardFocus() const;
 	bool IsMinimized() const;
 	bool IsShown() const;
 
-	static int GetCurrentID();
+	static Window* GetCurrentWindow();
 
 	~Window();
 private:
@@ -53,6 +55,6 @@ private:
 	bool m_minimized;
 	bool m_shown;
 
-	static int m_currentWindowID;
+	static Window* m_currentWindow;
 
 };

@@ -2,7 +2,7 @@
 #include "Window.h"
 #include <GL/glew.h>
 
-int Window::m_currentWindowID = -1;
+Window* Window::m_currentWindow = nullptr;
 
 Window::Window(int width, int height)
 	: m_internalWindow(nullptr), m_internalContext(nullptr), m_windowID(-1), m_width(width), m_height(height), m_mouseFocus(true), m_keyboardFocus(true), m_fullScreen(false), m_minimized(false), m_shown(true)
@@ -24,6 +24,7 @@ bool Window::Init()
 	}
 	//Apply gl context
 	m_internalContext = SDL_GL_CreateContext(m_internalWindow);
+
 
 	//Init glew
 	glewExperimental = GL_TRUE;
@@ -72,7 +73,7 @@ void Window::OnEvent(SDL_Event& event)
 			//Mouse exit
 		case SDL_WINDOWEVENT_LEAVE:
 			m_mouseFocus = false;
-			
+
 			break;
 
 			//Keyboard focus gained
@@ -103,8 +104,9 @@ void Window::OnEvent(SDL_Event& event)
 		case SDL_WINDOWEVENT_CLOSE:
 			SDL_HideWindow(m_internalWindow);
 			break;
+		default:
+			break;
 		}
-
 	}
 }
 
@@ -114,7 +116,7 @@ void Window::SetFocus()
 	if (!m_shown)
 		SDL_ShowWindow(m_internalWindow);
 	SDL_RaiseWindow(m_internalWindow);
-	m_currentWindowID = m_currentWindowID;
+	m_currentWindow = this;
 }
 
 void Window::Tick()
@@ -138,6 +140,16 @@ int Window::GetHeight() const
 	return m_height;
 }
 
+int Window::GetWindowID() const
+{
+	return m_windowID;
+}
+
+SDL_Window* Window::GetInternalWindow() const
+{
+	return m_internalWindow;
+}
+
 bool Window::HasKeyboardFocus() const
 {
 	return m_keyboardFocus;
@@ -155,9 +167,9 @@ bool Window::IsShown() const
 	return m_shown;
 }
 
-int Window::GetCurrentID()
+Window* Window::GetCurrentWindow()
 {
-	return m_currentWindowID;
+	return m_currentWindow;
 }
 
 Window::~Window()

@@ -3,6 +3,7 @@
 #include <SDL.h>
 #include "Input.h"
 #include "Time.h"
+#include "Cursor.h"
 
 namespace IntegralEngine
 {
@@ -13,6 +14,8 @@ namespace IntegralEngine
 		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 4);
 		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 0);
 		AddWindow(1280, 720);
+		Cursor::ToggleSecureCursor();
+
 		MainLoop();
 	}
 
@@ -28,6 +31,7 @@ namespace IntegralEngine
 			std::cout << "Could not create display " + m_windows.size();
 			delete window;
 		}
+		window->SetFocus();
 	}
 
 	void Engine::MainLoop()
@@ -35,9 +39,9 @@ namespace IntegralEngine
 		while (m_windows.size() != 0)
 		{
 			//Tick systems
-			Time::Tick();
-	
+			Time::Tick();	
 			Input::Tick();
+
 			//Check for sdl events
 			SDL_Event e;
 			while (SDL_PollEvent(&e))
@@ -54,13 +58,15 @@ namespace IntegralEngine
 					Input::OnEvent(e);
 				}
 			}
+
 			//Main tick
 			for (auto i = 0; i < m_windows.size(); ++i)
 			{
 				m_windows[i]->Tick();
 			}
-
-			std::cout << Time::deltaTime << std::endl;
+		
+			if(Input::GetMouseMotion().x)
+				std::cout << Input::GetMouseMotion().x << std::endl;
 		}
 	}
 

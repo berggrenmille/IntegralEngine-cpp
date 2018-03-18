@@ -4,6 +4,7 @@
 //
 
 #pragma once
+#define GLM_ENABLE_EXPERIMENTAL
 
 #include "targetver.h"
 
@@ -13,8 +14,10 @@
 #include <vector>
 #include <cmath>
 #include <iostream>
-#include <glm.hpp>
-
+#include <../glm/glm.hpp>
+#include <../glm/gtc/quaternion.hpp>
+#include <../glm/gtx/quaternion.hpp>
+#include "GLMUtil.h";
 
 
 // TODO: reference additional headers your program requires here
