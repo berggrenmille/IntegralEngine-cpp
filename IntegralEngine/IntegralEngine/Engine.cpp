@@ -7,6 +7,8 @@
 
 namespace IntegralEngine
 {
+
+
 	Engine::Engine()
 	{
 		SDL_Init(SDL_INIT_EVERYTHING);
@@ -14,7 +16,7 @@ namespace IntegralEngine
 		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 4);
 		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 0);
 		AddWindow(1280, 720);
-		Cursor::ToggleSecureCursor();
+		Application::Cursor::ToggleSecureCursor();
 
 		MainLoop();
 	}
@@ -39,8 +41,8 @@ namespace IntegralEngine
 		while (m_windows.size() != 0)
 		{
 			//Tick systems
-			Time::Tick();	
-			Input::Tick();
+			Application::Time::Tick();
+			Application::Input::Tick();
 
 			//Check for sdl events
 			SDL_Event e;
@@ -48,25 +50,25 @@ namespace IntegralEngine
 			{
 				if (e.type == SDL_WINDOWEVENT)
 				{
-					for (auto i = 0; i < m_windows.size(); ++i)
+					for (unsigned int  i = 0; i < m_windows.size(); ++i)
 					{
 						m_windows[i]->OnEvent(e);
 					}
 				}
 				else if(e.type == SDL_MOUSEMOTION)
 				{
-					Input::OnEvent(e);
+					Application::Input::OnEvent(e);
 				}
 			}
 
 			//Main tick
-			for (auto i = 0; i < m_windows.size(); ++i)
+			for (unsigned int i = 0; i < m_windows.size(); ++i)
 			{
 				m_windows[i]->Tick();
 			}
 		
-			if(Input::GetMouseMotion().x)
-				std::cout << Input::GetMouseMotion().x << std::endl;
+			if(Application::Input::GetMouseMotionRaw().x)
+				std::cout << Application::Input::GetMouseMotionRaw().x << std::endl;
 		}
 	}
 

@@ -3,22 +3,28 @@
 
 Vector3 Transform::Up()
 {
-	glm::detail::compute_quat_mul_vec4<double, glm::qualifier::defaultp, false> a;
-	return a.call(rotation, Vector4(0,1,0,0));
+	return VectorExtensions::Up() * rotation;
 }
 
 Vector3 Transform::Right()
 {
-	glm::detail::compute_quat_mul_vec4<double, glm::qualifier::defaultp, false> a;
-	return a.call(rotation, Vector4(1, 0, 0, 0));
+	return VectorExtensions::Right() * rotation;
 }
 
 Vector3 Transform::Forward()
 {
-	glm::detail::compute_quat_mul_vec4<double, glm::qualifier::defaultp, false> a;
-	return a.call(rotation, Vector4(0, 0, 1, 0));
+	return VectorExtensions::Forward() * rotation;
 }
 
 Matrix4x4 Transform::GetTransformMatrix()
 {
+	Matrix4x4 positionMatrix = MatrixExtensions::Identity();
+	Matrix4x4 rotationMatrix;
+	Matrix4x4 scaleMatrix = MatrixExtensions::Identity();
+
+	glm::translate(positionMatrix, position);
+	rotationMatrix = glm::toMat4(rotation);
+	glm::scale(scaleMatrix, scale);
+
+	return positionMatrix * rotationMatrix * scaleMatrix;
 }

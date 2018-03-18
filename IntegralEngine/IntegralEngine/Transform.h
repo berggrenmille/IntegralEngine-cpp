@@ -3,10 +3,10 @@
 class Transform
 {
 public:
-	Vector3 position = VectorExtensions::zero;
-	Vector3 eulerRotation = VectorExtensions::zero;
-	Quaternion rotation = QuaternionExtensions::identity;
-	Vector3 scale = VectorExtensions::zero;
+	Vector3 position = Zero();
+	Vector3 eulerRotation = Zero();
+	Quaternion rotation = MatrixExtensions::Identity();
+	Vector3 scale = Zero();
 
 	Vector3 Up();
 	Vector3 Right();

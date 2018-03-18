@@ -1,10 +1,12 @@
 ﻿#pragma once
-
-namespace Time
+namespace Application
 {
-	extern double deltaTime;
-	extern double time;
+	namespace Time
+	{
+		extern double deltaTime;
+		extern double time;
 
-    void Tick();
+		void Tick();
 
-};
+	};
+}

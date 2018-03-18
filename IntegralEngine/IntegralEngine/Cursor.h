@@ -1,16 +1,18 @@
 ﻿#pragma once
-
-class Cursor
+namespace Application
 {
-public:
-	static bool IsLocked();
-	static bool IsSecured();
-	static void ToggleLockCursor();
-	static void ToggleSecureCursor();
-	static void FreeCursor();
-	static void ToggleCursor();
-private:
-	static bool m_locked;
-	static bool m_secured;
-	
-};
+	class Cursor
+	{
+	public:
+		static bool IsLocked();
+		static bool IsSecured();
+		static void ToggleLockCursor();
+		static void ToggleSecureCursor();
+		static void FreeCursor();
+		static void ToggleCursor();
+	private:
+		static bool m_locked;
+		static bool m_secured;
+
+	};
+}

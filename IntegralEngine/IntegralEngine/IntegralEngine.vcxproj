@@ -154,6 +154,7 @@
   <ItemGroup>
     <ClInclude Include="Cursor.h" />
     <ClInclude Include="Engine.h" />
+    <ClInclude Include="Entity.h" />
     <ClInclude Include="GLMUtil.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="stdafx.h" />
@@ -166,6 +167,7 @@
   <ItemGroup>
     <ClCompile Include="Cursor.cpp" />
     <ClCompile Include="Engine.cpp" />
+    <ClCompile Include="Entity.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="Test.cpp" />
     <ClCompile Include="stdafx.cpp">
