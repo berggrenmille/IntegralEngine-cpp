@@ -3,14 +3,14 @@
 class Transform
 {
 public:
-	Vector3 position = Zero();
-	Vector3 eulerRotation = Zero();
+	Vector3 position = VectorExtensions::Zero();
+	Vector3 eulerRotation = VectorExtensions::Zero();
 	Quaternion rotation = MatrixExtensions::Identity();
-	Vector3 scale = Zero();
+	Vector3 scale = VectorExtensions::Zero();
 
-	Vector3 Up();
-	Vector3 Right();
-	Vector3 Forward();
+	Vector3 Up() const;
+	Vector3 Right() const;
+	Vector3 Forward() const;
 
 	Matrix4x4 GetTransformMatrix();
 private:

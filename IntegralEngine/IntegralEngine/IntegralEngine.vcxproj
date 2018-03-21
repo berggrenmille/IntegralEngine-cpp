@@ -157,6 +157,7 @@
     <ClInclude Include="Entity.h" />
     <ClInclude Include="GLMUtil.h" />
     <ClInclude Include="Input.h" />
+    <ClInclude Include="MessageBus.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Time.h" />
@@ -169,6 +170,7 @@
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="Input.cpp" />
+    <ClCompile Include="MessageBus.cpp" />
     <ClCompile Include="Test.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
