@@ -11,10 +11,10 @@ public:
 	//Init window
 	bool Init();
 
-	//Handle incoming events
+	//Handle incoming SDL events
 	void OnEvent(SDL_Event& event);
 
-	//Focus
+	//Focus on this window
 	void SetFocus();
 
 	//Main loop tick
